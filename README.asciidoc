@@ -1,0 +1,10 @@
+ArgfulJuggler
+-------------
+
+__For Juggling Collections__
+
+NOTE: This plugin is pre-alpha -- it is merely a thought exercise for now.
+
+ArtfulJuggler is intended to assist with navigating around and
+shifting elements within collections like argument lists, arrays and
+dictionaries -- __inside your editor__.
