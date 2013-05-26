@@ -1,0 +1,19 @@
+; Argful Juggler - for juggling collections
+; Barry Arthur, 2013 05 26
+
+.skip_white = false
+.namespace = 'argful_juggler'
+.parser_name = 'argful_juggler#parser'
+.root_element = 'argful_juggler'
+
+argful_juggler       ::=  paren | bracket | brace
+paren       ::=  '(' list* ')' -> #paren
+bracket     ::=  '\[' list* '\]' -> #paren
+brace       ::=  '{' list* '}' -> #paren
+list        ::=  elem (',\s*' elem)* -> #list
+elem        ::=  keyvalpair | string | identifier | argful_juggler
+string      ::=  sqstring | dqstring
+sqstring    ::=  '''' ('''''' | !'''' '.')* '''' -> #string
+dqstring    ::=  '"' ('\\"' | !'"' '.')* '"' -> #string
+keyvalpair  ::=  string '\s*:\s*' elem -> #keyvalpair
+identifier  ::=  (!'[{}(),''"\[\]]' '.')+ -> #identifier
